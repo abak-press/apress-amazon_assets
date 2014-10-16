@@ -26,4 +26,3 @@ namespace :amazon do
     end
   end
 end
-update_attribute
