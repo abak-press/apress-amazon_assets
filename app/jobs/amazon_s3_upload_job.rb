@@ -14,13 +14,12 @@ class AmazonS3UploadJob
   #
   # Returns nothing
   def self.execute(id, class_name)
-    asset = class_name.constantize.find(id)
-    file = asset.local.to_file(:original)
-    asset.remote = file
-    asset.save!
-  ensure
-    if defined?(file) && file && file.respond_to?(:close)
-      file.close
+    asset = class_name.constantize.where(id: id).first
+    unless asset
+      puts "#{class_name} with id #{id} not found. Skiping."
+      return
     end
+
+    asset.copy_to_remote
   end
 end

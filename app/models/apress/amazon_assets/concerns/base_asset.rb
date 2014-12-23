@@ -27,6 +27,19 @@ module Apress
         end
 
         module InstanceMethods
+          # Copy local file to amazon
+          #
+          # Returns nothing
+          def copy_to_remote
+            original_file = local.to_file(:original)
+            self.remote = original_file
+            save!
+          ensure
+            if original_file && original_file.respond_to?(:close)
+              original_file.close
+            end
+          end
+
           # Подготовим имя файла
           #
           # Returns nothing
