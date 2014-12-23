@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '>= 1.6'
   spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'apress-gems', '>= 0.0.4'
+  spec.add_development_dependency 'apress-gems', '>= 0.2.0'
   spec.add_development_dependency 'rspec', '>= 2.14.0'
   spec.add_development_dependency 'rspec-rails', '>= 2.14.0'
   spec.add_development_dependency 'factory_girl_rails', '>= 3.1'
