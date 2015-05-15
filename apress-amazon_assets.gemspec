@@ -4,13 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'apress/amazon_assets/version'
 
 Gem::Specification.new do |spec|
+  spec.metadata['allowed_push_host'] = 'https://gems.railsc.ru'
   spec.name          = "apress-amazon_assets"
   spec.version       = Apress::AmazonAssets::VERSION
   spec.authors       = ["merkushin"]
   spec.email         = ["merkushin.m.s@gmail.com"]
   spec.summary       = %q{amazon assets}
   spec.description   = %q{amazon assets}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/abak-press/apress-amazon_assets'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -26,9 +27,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'bundler', '>= 1.6'
   spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'apress-gems', '>= 0.2.0'
   spec.add_development_dependency 'rspec', '>= 2.14.0'
   spec.add_development_dependency 'rspec-rails', '>= 2.14.0'
   spec.add_development_dependency 'factory_girl_rails', '>= 3.1'
   spec.add_development_dependency 'appraisal', '>= 1.0.2'
+  spec.add_development_dependency 'combustion', '>= 0.5.3'
 end
