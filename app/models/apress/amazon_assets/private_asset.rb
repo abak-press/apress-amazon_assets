@@ -2,7 +2,7 @@
 module Apress
   module AmazonAssets
     class PrivateAsset < ActiveRecord::Base
-      set_table_name 'amazon_s3_assets'
+      self.table_name = 'amazon_s3_assets'
 
       S3_BUCKET = "#{APP_NAME}#{"_#{Rails.env}" unless Rails.env.production?}".freeze
 
