@@ -57,7 +57,7 @@ rake amazon:public_assets:autoclean
 1. git checkout master
 2. git pull upstream master
 3. правим версию гема в файле VERSION в корне гема. (читаем правила версионирования http://semver.org/)
-4. bundle exec rake release
+4. apress-gem release --version 0.0.1
 
 ## Contributing
 
