@@ -10,14 +10,19 @@ module Apress
 
         STORAGE_TIME_OF_LOCAL_FILE = 1.day
         STORAGE_TIME_OF_REMOTE_URL = 10.minutes
-        MAX_FILE_SIZE = 10.megabytes
 
         included do
-          belongs_to :attachable, :polymorphic => true
+          belongs_to :attachable, polymorphic: true
 
-          validate :validate_content_type
-          validates_attachment_size :local, :less_than => MAX_FILE_SIZE, :message => "Прикреплен слишком тяжёлый файл"
-          validates_attachment_size :remote, :less_than => MAX_FILE_SIZE, :message => "Прикреплен слишком тяжёлый файл"
+          do_not_validate_attachment_file_type :local, :remote
+
+          validate :validate_local_content_type
+
+          validates_attachment_size :local, less_than: ->(record) { record.allowed_size },
+                                            message: 'Прикреплен слишком тяжёлый файл'
+
+          validates_attachment_size :remote, less_than: ->(record) { record.allowed_size },
+                                             message: 'Прикреплен слишком тяжёлый файл'
 
           before_local_post_process :prepare_file_name
 
@@ -27,22 +32,74 @@ module Apress
           alias_method :file=, :local=
         end
 
-        # Copy local file to amazon
+        # Public: Максимальный размер загружаемых файлов.
         #
-        # Returns nothing
+        # Returns Integer max size in bytes.
+        def allowed_size
+          @allowed_size ||= config_fetch(:max_size)
+        end
+
+        # Public: Список разрешенных типов загружаемых файлов.
+        #
+        # Returns Array of allowed content types Strings.
+        def allowed_types
+          @allowed_types ||= config_fetch(:content_types)
+        end
+
+        # Public: Загрузка локального файла на Amazon.
+        #
+        # Returns nothing.
         def copy_to_remote
-          original_file = local.to_file(:original)
-          self.remote = original_file
-          save!
+          original_file = Paperclip.io_adapters.for(local)
+          update_attributes! remote: original_file
         ensure
-          if original_file && original_file.respond_to?(:close)
-            original_file.close
+          original_file.close unless original_file.closed?
+        end
+
+        # Public: Возвращает файл, либо с амазона, либо локальный.
+        #
+        # remote_first - boolean (default: true).
+        #
+        # Returns paperclip attachment.
+        def file(remote_first = true)
+          if remote_first
+            remote? ? remote : local
+          else
+            local? ? local : remote
           end
         end
 
-        # Подготовим имя файла
+        # Public: Возвращает имя файла, либо с амазона, либо локальное.
         #
-        # Returns nothing
+        # Returns String or nil.
+        def file_name
+          current_file = file
+          File.basename(current_file.path) if current_file && current_file.path.present?
+        end
+
+        private
+
+        # Internal: Проектный конфиг для amazon_assets.
+        #
+        # Returns Hash.
+        def config
+          @config ||= Rails.application.config.amazon_assets.with_indifferent_access
+        end
+
+        # Internal: Извлечение опций из проектного конфига.
+        # Если есть attachable_type и соответствующая секция в конфиге,
+        # то опции берутся из нее, иначе из секции defaults.
+        #
+        # key - Symbol, ключ в конфиге.
+        #
+        # Returns option value.
+        def config_fetch(key)
+          attachable_type && config[attachable_type.underscore].try(:fetch, key, nil) || config[:defaults].fetch(key)
+        end
+
+        # Internal: Колбек для подготовки имени локального файла.
+        #
+        # Returns nothing.
         def prepare_file_name
           return unless local_file_name_changed?
           return if @file_name_prepared
@@ -63,84 +120,34 @@ module Apress
           @file_name_prepared = true
         end
 
-        # Установим имя файла
+        # Internal: Флаг для after_commit колбека - нужно ли загружать на амазон.
         #
-        # file_name - String
-        #
-        # Returns String
-        def set_file_name(file_name)
-          self.remote_file_name = file_name
-        end
-
-        # Запомним для after_commit нужно ли загружать на амазон
-        #
-        # Returns nothing
+        # Returns nothing.
         def store_need_upload
           @need_upload = local_updated_at_changed?
           nil
         end
 
-        # Поставить в очередь на загрузку на амазон
+        # Internal: Колбек для постановки в очередь на загрузку на амазон.
         #
-        # Returns nothing
+        # Returns nothing.
         def queue_upload_to_s3
           if @need_upload
             @need_upload = false
             ::AmazonS3UploadJob.enqueue(id, self.class.name)
           end
-
           nil
         end
 
-        # Возвращает файл либо локальный либо с амазона
+        # Internal: Валидация типа локального файла.
         #
-        # remote_first - boolean (default: true)
-        #
-        # Returns paperclip attachment
-        def file(remote_first = true)
-          if remote_first
-            remote? ? remote : local
-          else
-            local? ? local : remote
+        # Returns nothing.
+        def validate_local_content_type
+          return if local_content_type.blank?
+
+          if allowed_types.present? && !allowed_types.include?(local_content_type)
+            [:local_content_type, :local].each { |attr| errors.add attr, 'Недопустимый формат файла' }
           end
-        end
-
-        def file_name
-          _file = file
-          File.basename(_file.path) if _file.present? && _file.path.present?
-        end
-
-        def validate_content_type
-          type_is_allowed = allowed_types.any? { |t| t === local_content_type }
-
-          if !type_is_allowed && !(local_content_type.nil? || local_content_type.blank?)
-            if errors.method(:add).arity == -2
-              errors.add(:local_content_type, "Недопустимый формат файла")
-            else
-              errors.add(
-                :local_content_type,
-                :inclusion,
-                :default => "Недопустимый формат файла",
-                :value => local_content_type
-              )
-            end
-          end
-        end
-
-        def allowed_types
-          return @allowed_types if defined?(@allowed_types)
-
-          assoc_method = :valid_content_types
-
-          # проверяем непосредственно аттач, либо объект класса аттача (в таком порядке)
-          # у кого первого есть метод valid_content_types, "тот и папа"
-          entry =
-            [attachable, (attachable_type.constantize if attachable_type.present? rescue nil)].
-              select { |assoc_or_class| assoc_or_class.respond_to?(assoc_method) }.
-              compact.
-              first
-
-          @allowed_types = entry ? entry.send(assoc_method) : []
         end
       end
     end
