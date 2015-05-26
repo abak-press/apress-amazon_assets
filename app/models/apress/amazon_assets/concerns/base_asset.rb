@@ -20,8 +20,9 @@ module Apress
           validates_attachment_size :remote, :less_than => MAX_FILE_SIZE, :message => "Прикреплен слишком тяжёлый файл"
 
           before_local_post_process :prepare_file_name
+
           after_save :store_need_upload
-          after_commit :queue_upload_to_s3, :if => :local_updated_at_changed?
+          after_commit :queue_upload_to_s3
 
           alias_method :file=, :local=
         end
