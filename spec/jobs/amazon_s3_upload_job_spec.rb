@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe AmazonS3UploadJob do
@@ -6,7 +7,7 @@ describe AmazonS3UploadJob do
   end
 
   context 'when asset found' do
-    let(:asset) { Apress::AmazonAssets::PublicAsset.create }
+    let(:asset) { Apress::AmazonAssets::PublicAsset.create! }
 
     it { expect_any_instance_of(Apress::AmazonAssets::PublicAsset).to receive(:copy_to_remote) }
 
