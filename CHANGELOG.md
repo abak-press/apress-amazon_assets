@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2015-05-26 [e0de0d6](../../commit/e0de0d6) - __(Simeon Movchan)__ feat(gemspec): поддержка rails 4.2 и переход на aws-sdk
+
+#### v0.0.4
+ * 2015-05-26 [1ac89a6](../../commit/1ac89a6) - __(Simeon Movchan)__ Release 0.0.4
  * 2015-05-26 [a5583cb](../../commit/a5583cb) - __(Simeon Movchan)__ fix(upload): включен колбек заливки картинки на Amazon
  * 2015-05-15 [6633d75](../../commit/6633d75) - __(Korotaev Danil)__ chore(gemspec): remove apress-gems dependency and use combustion 0.5.3
  * 2015-05-15 [c4a2c57](../../commit/c4a2c57) - __(Korotaev Danil)__ chore(gemspec): use rails 4.0
