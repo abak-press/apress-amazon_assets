@@ -10,14 +10,30 @@ module Apress
 
         STORAGE_TIME_OF_LOCAL_FILE = 1.day
         STORAGE_TIME_OF_REMOTE_URL = 10.minutes
-        MAX_FILE_SIZE = 10.megabytes
 
         included do
           belongs_to :attachable, :polymorphic => true
 
           validate :validate_content_type
-          validates_attachment_size :local, :less_than => MAX_FILE_SIZE, :message => "Прикреплен слишком тяжёлый файл"
-          validates_attachment_size :remote, :less_than => MAX_FILE_SIZE, :message => "Прикреплен слишком тяжёлый файл"
+
+          # TODO: после обновления пэперклипа на >= 3 можно заменить на
+          # validates_attachment_size :local,
+          #   :less_than => -> (record) { record.allowed_size },
+          #   :message => "Прикреплен слишком тяжёлый файл"
+
+          validates :local_file_size,
+                    :allow_nil => true,
+                    :inclusion => {
+                      :in => proc { |record| 0..record.allowed_size },
+                      :message => "Прикреплен слишком тяжёлый файл"
+                    }
+
+          validates :remote_file_size,
+                    :allow_nil => true,
+                    :inclusion => {
+                      :in => proc { |record| 0..record.allowed_size },
+                      :message => "Прикреплен слишком тяжёлый файл"
+                    }
 
           before_local_post_process :prepare_file_name
 
@@ -55,7 +71,7 @@ module Apress
 
           extname = File.extname(local_file_name).force_encoding("UTF-8")
           fname = File.basename(local_file_name).chomp(extname).force_encoding("UTF-8")
-          fname = fname.to_url.gsub(/[^a-zA-Z0-9_-]/, '')
+          fname = fname.gsub(/[^[:word:]-]/, '').to_url
           sold  = SecureRandom.hex.first(4)
           fname = "#{sold}__#{fname.presence || SecureRandom.hex.first(6)}#{extname}"
 
@@ -127,6 +143,10 @@ module Apress
           end
         end
 
+        # Public: Список разрешенных типов загружаемых файлов.
+        #
+        # Returns Array of allowed content types Strings.
+        # TODO: до перехода на конфиги, чтобы не ломать существующий код оставлена старая логика
         def allowed_types
           return @allowed_types if defined?(@allowed_types)
 
@@ -140,7 +160,32 @@ module Apress
               compact.
               first
 
-          @allowed_types = entry ? entry.send(assoc_method) : []
+          @allowed_types = entry ? entry.send(assoc_method) : config_fetch(:content_types)
+        end
+
+        # Public: Максимальный размер загружаемых файлов.
+        #
+        # Returns Integer max size in bytes.
+        def allowed_size
+          @allowed_size ||= config_fetch(:max_size)
+        end
+
+        # Internal: Проектный конфиг для amazon_assets.
+        #
+        # Returns Hash.
+        def config
+          @config ||= Rails.application.config.amazon_assets.with_indifferent_access
+        end
+
+        # Internal: Извлечение опций из проектного конфига.
+        # Если есть attachable_type и соответствующая секция в конфиге,
+        # то опции берутся из нее, иначе из секции defaults.
+        #
+        # key - Symbol, ключ в конфиге.
+        #
+        # Returns option value.
+        def config_fetch(key)
+          attachable_type && config[attachable_type.underscore].try(:fetch, key, nil) || config[:defaults].fetch(key)
         end
       end
     end

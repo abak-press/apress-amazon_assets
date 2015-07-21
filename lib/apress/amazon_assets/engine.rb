@@ -20,6 +20,15 @@ module Apress
         end
       end
 
+      initializer :apress_amazon_assets_config, before: :load_config_initializers do |app|
+        app.config.amazon_assets = {
+          defaults: {
+            content_types: %w(image/gif image/jpeg image/png),
+            max_size: 10.megabytes
+          }
+        }
+      end
+
       rake_tasks do
         load 'apress/amazon_assets/tasks.rake'
       end
