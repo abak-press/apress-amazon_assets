@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: http://s3.amazonaws.com/<%= path %>
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0
+        d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAt1JREFUeNqkU1lIVGEU/u4y
+        d9wdF3LJURlLk3FcUNMBBTWDXhRbwR4iIioicN5CilZIiJ6T3oSgh16KfCh6
+        kKSHNiNCLdTJZXSc1Tvrnbl37r0z/TdRtHzrwMd/zvnP8v2H81OpVAr/I6zx
+        gPFvH0dwg+De5ZFOVXM8GX6fTo4RYtv+DqZ3Gqv21S31VkX1vhPkrHk09Do/
+        GhfOEqbZN08/g4ZdDHZ0TWjKxfvWrLkpr2ztrnmem5GHwuJsqAILKSHCUJoX
+        Ca4HbKqibBdgcvJzNHq/CPa7094V6Vj6YX/vGVOX5RR0TBbcgUUgnIn8nHwo
+        qtJ++8GdvJae8jfJZBIaNAZxgqvG6twXej1H97VdQGaaHr6QHUipYDgyZEYG
+        pepQUlACURKHxu5+KaIoyjN4vd62NYNX5o7CuZ6GAcREN+lqR1yKwpBVAJM5
+        E8UHuU26DANOx4HMZPyk7ZAtISX+MCjvu1JprS431wqSC5IcRhqXgVRKRij8
+        E83ljcg+aofd5AbvkRCZZhCYxURCFLdn4MopYAbbm9vhjyxBVWXyNhle3wJW
+        A8uwVB1Hnakb5qoWWGobUFzBICRsGD+Oeycr69JjGoOydEPSG5V9TCQeBkto
+        OtZ5CFIEHQ39WPFPEB8Lji0BTaVj3jGLtXmhj+T1vB1zlbBtAxlRVVYYF79E
+        aCfB+3nEhBiszUfg8H0nSUkwNAWKcmDF5YXH437a0Jt2bnsPPr2MJZqO0dM8
+        77fEYyKikRia6tuw7JlGCipYlgFFAmPkbm5mDYqijP6zSGSaox5n4LEKCfWW
+        w1jbWICa3FwWmnQXBQnOxQ04ZlTwTrrR3K182LlI8C3TU3pDsAhUqlVGlPRN
+        aEURCQrwOnmS7P8sJ+Rh5w9ukuScJ/FjhlJRJQKqrKpsm05tp3ItLgqXiGoh
+        4BWJXgm69E1RH2eqbA0t7fUbdxXYKcamDax+K9DW3EvQReyve8X9FmAAHyxD
+        +bF2jCMAAAAASUVORK5CYII=
+    headers:
+      Content-Type:
+      - image/png
+      X-Amz-Acl:
+      - public-read
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - amazon_assets_test.s3.amazonaws.com
+      Date:
+      - Wed, 22 Jul 2015 11:17:45 GMT
+      Authorization:
+      - AWS AKIAJR44XLNRQVCSDJTQ:9/14yXShwpEnFgDO1fe+chYzAOI=
+      Content-Length:
+      - '827'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - CAMA7d+ph7OydJjTmumhdN9b+Ih5JzYLCrhIRILifnvxo3AyI2U3X801aRs23xcn
+      X-Amz-Request-Id:
+      - F2339DF3504FBEE6
+      Date:
+      - Wed, 22 Jul 2015 11:17:40 GMT
+      Etag:
+      - '"fc62a57a9d14e7b2d685335eef5d4546"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 22 Jul 2015 11:17:46 GMT
+recorded_with: VCR 2.9.3

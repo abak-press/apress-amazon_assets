@@ -5,5 +5,6 @@ source "https://rubygems.org"
 
 gem "aws-s3", "~> 0.6.2", :github => "JeremyGeros/aws-s3"
 gem "rails", "~> 3.1.0"
+gem "test_after_commit", "~> 0.2.3", :require => false
 
 gemspec :path => "../"
