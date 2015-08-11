@@ -4,7 +4,7 @@ require 'spec_helper'
 require_relative 'concerns/base_asset_shared_examples'
 
 describe Apress::AmazonAssets::PrivateAsset do
-  it_behaves_like 'base asset'
+  it_behaves_like 'base asset', :private_asset
 
   describe 'local' do
     it { expect(subject).to have_attached_file(:local) }

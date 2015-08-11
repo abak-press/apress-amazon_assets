@@ -1,6 +1,13 @@
 # coding: utf-8
-shared_examples_for 'base asset' do
-  subject { described_class.new }
+shared_examples_for 'base asset' do |factory_name|
+  subject { build factory_name }
+
+  # в rails 3.1 метод respond_to? переопределен и принимает 1 аргумент, стабить не получается
+  let!(:old_config) { Rails.application.config.amazon_assets }
+
+  after do
+    Rails.application.config.amazon_assets = old_config
+  end
 
   it { expect(subject).to belong_to(:attachable) }
 
@@ -27,12 +34,12 @@ shared_examples_for 'base asset' do
 
         context 'when overridden' do
           before do
-            allow(Rails.application.config).to receive(:amazon_assets).and_return(
+            Rails.application.config.amazon_assets = {
               defaults: {
                 content_types: %w(image/png image/gif),
                 max_size: 10.megabytes
               }
-            )
+            }
           end
 
           it { expect(subject.allowed_types).to eq %w(image/png image/gif) }
@@ -57,7 +64,7 @@ shared_examples_for 'base asset' do
         before do
           allow(subject).to receive(:attachable_type).and_return attachable_type
 
-          allow(Rails.application.config).to receive(:amazon_assets).and_return(
+          Rails.application.config.amazon_assets = {
             defaults: {
               content_types: %w(image/png image/jpeg image/gif),
               max_size: 10.megabytes
@@ -66,7 +73,7 @@ shared_examples_for 'base asset' do
               content_types: %w(application/xml text/plain),
               max_size: 10.megabytes
             }
-          )
+          }
         end
 
         it { expect(subject.allowed_types).to eq %w(application/xml text/plain) }
@@ -93,12 +100,12 @@ shared_examples_for 'base asset' do
 
         context 'when overridden' do
           before do
-            allow(Rails.application.config).to receive(:amazon_assets).and_return(
+            Rails.application.config.amazon_assets = {
               defaults: {
                 content_types: %w(image/png image/jpeg image/gif),
                 max_size: 100.megabytes
               }
-            )
+            }
           end
 
           Then { expect(subject.allowed_size).to eq 100.megabytes }
@@ -113,7 +120,7 @@ shared_examples_for 'base asset' do
         before do
           allow(subject).to receive(:attachable_type).and_return attachable_type
 
-          allow(Rails.application.config).to receive(:amazon_assets).and_return(
+          Rails.application.config.amazon_assets = {
             defaults: {
               content_types: %w(image/png image/jpeg image/gif),
               max_size: 100.megabytes
@@ -122,7 +129,7 @@ shared_examples_for 'base asset' do
               content_types: %w(application/xml text/plain),
               max_size: 200.megabytes
             }
-          )
+          }
         end
 
         Then { expect(subject.allowed_size).to eq 200.megabytes }
@@ -149,13 +156,25 @@ shared_examples_for 'base asset' do
       context 'when not allowed symbols in file name' do
         let(:file) { File.new('spec/fixtures/assets/test(123)') }
 
-        it { expect(subject.local_file_name).to match(/[0-9a-f]{4}__test-123/)  }
+        it { expect(subject.local_file_name).to match(/[0-9a-f]{4}__test123/)  }
       end
 
       context 'when no allowed symbols in file name' do
         let(:file) { File.new('spec/fixtures/assets/###') }
 
         it { expect(subject.local_file_name).to match(/[0-9a-f]{4}__[0-9a-f]{6}/)  }
+      end
+
+      context 'when cyrilic filename' do
+        let(:file) { File.new('spec/fixtures/assets/картинка.jpg') }
+
+        it { expect(subject.local_file_name).to match(/[0-9a-f]{4}__kartinka.jpg/)  }
+      end
+
+      context 'when filename has minus sign' do
+        let(:file) { File.new('spec/fixtures/assets/test-test.txt') }
+
+        it { expect(subject.local_file_name).to match(/[0-9a-f]{4}__test\-test.txt/)  }
       end
     end
 
