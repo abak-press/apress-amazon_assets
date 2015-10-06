@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'apress-paperclip'
   spec.add_runtime_dependency 'resque-integration'
   spec.add_runtime_dependency 'stringex'
+  spec.add_runtime_dependency 'aws-s3', '~> 0.6.2'
 
   spec.add_development_dependency 'bundler', '>= 1.6'
   spec.add_development_dependency 'rake'
