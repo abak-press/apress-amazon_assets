@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2015-10-06 [9f273e0](../../commit/9f273e0) - __(Semyon Pupkov)__ Add missing dependency
+
+#### v0.1.0
+ * 2015-07-23 [a5a6e9d](../../commit/a5a6e9d) - __(Simeon Movchan)__ Release 0.1.0
  * 2015-07-21 [34dbce5](../../commit/34dbce5) - __(Dmitry Bochkarev)__ feature: возможность переопределить максимальный размер файла и типы допустимых фалов через конфиг
 
 #### v1.0.0
