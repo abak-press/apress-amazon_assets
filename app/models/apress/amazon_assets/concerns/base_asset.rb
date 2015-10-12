@@ -64,6 +64,7 @@ module Apress
           return if @file_name_prepared
 
           if remote_file_name.present?
+            self.origin_file_name = remote_file_name
             local.instance_write(:file_name, remote_file_name)
             @file_name_prepared = true
             return
@@ -75,6 +76,7 @@ module Apress
           sold  = SecureRandom.hex.first(4)
           fname = "#{sold}__#{fname.presence || SecureRandom.hex.first(6)}#{extname}"
 
+          self.origin_file_name = local_file_name
           local.instance_write(:file_name, fname)
           @file_name_prepared = true
         end

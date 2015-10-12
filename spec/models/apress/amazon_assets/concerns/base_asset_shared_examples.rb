@@ -295,35 +295,41 @@ shared_examples_for 'base asset' do |factory_name|
       before { subject.local = file }
 
       it { expect(subject.local_file_name).to match(/[0-9a-f]{4}__test\.txt/) }
+      it { expect(subject.origin_file_name).to eq 'test.txt' }
 
       context 'when remote_file_name present' do
         subject { described_class.new remote_file_name: 'remote.txt' }
 
         it { expect(subject.local_file_name).to eq subject.remote_file_name }
+        it { expect(subject.origin_file_name).to eq 'remote.txt' }
       end
 
       context 'when not allowed symbols in file name' do
         let(:file) { File.new('spec/fixtures/assets/test(123)') }
 
         it { expect(subject.local_file_name).to match(/[0-9a-f]{4}__test123/)  }
+        it { expect(subject.origin_file_name).to eq 'test(123)' }
       end
 
       context 'when no allowed symbols in file name' do
         let(:file) { File.new('spec/fixtures/assets/###') }
 
         it { expect(subject.local_file_name).to match(/[0-9a-f]{4}__[0-9a-f]{6}/)  }
+        it { expect(subject.origin_file_name).to eq '###' }
       end
 
       context 'when cyrilic filename' do
         let(:file) { File.new('spec/fixtures/assets/картинка.jpg') }
 
         it { expect(subject.local_file_name).to match(/[0-9a-f]{4}__kartinka.jpg/)  }
+        it { expect(subject.origin_file_name).to eq 'картинка.jpg' }
       end
 
       context 'when filename has minus sign' do
         let(:file) { File.new('spec/fixtures/assets/test-test.txt') }
 
         it { expect(subject.local_file_name).to match(/[0-9a-f]{4}__test\-test.txt/)  }
+        it { expect(subject.origin_file_name).to eq 'test-test.txt' }
       end
     end
 
