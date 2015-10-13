@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2015-10-12 [9d3c74e](../../commit/9d3c74e) - __(Semyon Pupkov)__ feature: save origin file name
+
+#### v0.1.1
+ * 2015-10-07 [0ce9816](../../commit/0ce9816) - __(Semyon Pupkov)__ Release 0.1.1
  * 2015-10-06 [9f273e0](../../commit/9f273e0) - __(Semyon Pupkov)__ Add missing dependency
 
 #### v0.1.0
