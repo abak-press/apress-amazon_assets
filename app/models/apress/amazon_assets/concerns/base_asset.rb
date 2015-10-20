@@ -112,7 +112,7 @@ module Apress
 
           extname = File.extname(local_file_name).force_encoding("UTF-8")
           fname = File.basename(local_file_name).chomp(extname).force_encoding("UTF-8")
-          fname = fname.to_url.gsub(/[^a-zA-Z0-9_-]/, '')
+          fname = fname.gsub(/[^[:word:]-]/, '').to_url
           sold  = SecureRandom.hex.first(4)
           fname = "#{sold}__#{fname.presence || SecureRandom.hex.first(6)}#{extname}"
 

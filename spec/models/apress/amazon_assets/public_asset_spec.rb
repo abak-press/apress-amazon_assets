@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe Apress::AmazonAssets::PublicAsset do
-  it_behaves_like 'base asset'
+  it_behaves_like 'base asset', :public_asset
 
   describe 'local' do
     it { expect(subject).to have_attached_file(:local) }

@@ -11,7 +11,7 @@ test: config/database bundler/install appraisal/install
 
 config/database:
 	touch spec/internal/config/database.yml
-	echo 'test:' >> spec/internal/config/database.yml
+	echo 'test:' > spec/internal/config/database.yml
 	echo '  adapter: postgresql' >> spec/internal/config/database.yml
 	echo '  database: docker' >> spec/internal/config/database.yml
 	echo '  username: docker' >> spec/internal/config/database.yml
