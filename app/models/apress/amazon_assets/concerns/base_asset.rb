@@ -94,7 +94,7 @@ module Apress
         #
         # Returns nothing
         def store_need_upload
-          @need_upload = local_updated_at_changed?
+          @need_upload = local_updated_at_changed? && local?
           nil
         end
 
