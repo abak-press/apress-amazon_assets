@@ -194,6 +194,13 @@ shared_examples_for 'base asset' do |factory_name|
         And  { expect(upload_job).to have_received(:enqueue).with(subject.id, described_class.name) }
       end
 
+      context 'when local file changed to nil' do
+        before { subject.update_attributes! local: nil }
+
+        Then { expect(subject).to be_persisted }
+        And  { expect(upload_job).to_not have_received(:enqueue) }
+      end
+
       context 'when local file not changed' do
         before { subject.save! }
 
