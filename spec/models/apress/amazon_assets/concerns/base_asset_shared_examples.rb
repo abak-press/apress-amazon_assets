@@ -1,11 +1,18 @@
 # coding: utf-8
+require 'fileutils'
+
 shared_examples_for 'base asset' do |factory_name|
   subject { build factory_name }
 
   # в rails 3.1 метод respond_to? переопределен и принимает 1 аргумент, стабить не получается
   let!(:old_config) { Rails.application.config.amazon_assets }
 
+  before do
+    FileUtils.copy_file('spec/fixtures/assets/test.jpg', 'spec/fixtures/assets/картинка.jpg')
+  end
+
   after do
+    FileUtils.remove_file('spec/fixtures/assets/картинка.jpg', true)
     Rails.application.config.amazon_assets = old_config
   end
 
