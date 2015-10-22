@@ -1,5 +1,10 @@
 
 #### [Current]
+ * 2015-10-20 [eac0f48](../../commit/eac0f48) - __(Dmitry Bochkarev)__ fix(specs): создавать при запуске теста картинка.jpg
+ * 2015-10-20 [f8d4130](../../commit/f8d4130) - __(Denis Korobitcin)__ fix(callbacks): fixed upload on nil local file
+
+#### v0.2.0
+ * 2015-10-13 [66cdb4e](../../commit/66cdb4e) - __(Semyon Pupkov)__ Release 0.2.0
  * 2015-10-12 [9d3c74e](../../commit/9d3c74e) - __(Semyon Pupkov)__ feature: save origin file name
 
 #### v0.1.1
