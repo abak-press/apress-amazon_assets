@@ -4,7 +4,7 @@ require 'apress/amazon_assets/engine'
 
 require 'active_record'
 require 'paperclip'
-require 'resque'
+require 'resque-integration'
 
 module Apress
   module AmazonAssets
