@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2015-12-22 [3a3a9c1](../../commit/3a3a9c1) - __(Dmitry Bochkarev)__ chore: джоб для очистки локальных файлов
+
+#### v1.0.1
+ * 2015-12-22 [1429e99](../../commit/1429e99) - __(Simeon Movchan)__ Release 1.0.1
  * 2015-10-20 [a1b05c8](../../commit/a1b05c8) - __(Dmitry Bochkarev)__ fix(specs): создавать при запуске теста картинка.jpg
  * 2015-10-20 [da26553](../../commit/da26553) - __(Denis Korobitcin)__ fix(callbacks): fixed upload on nil local file
  * 2015-08-11 [fe42c2a](../../commit/fe42c2a) - __(Dmitry Bochkarev)__ fix: не преобразовывать служебные символы в слова
