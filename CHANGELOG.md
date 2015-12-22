@@ -1,5 +1,30 @@
 
 #### [Current]
+ * 2015-10-20 [a1b05c8](../../commit/a1b05c8) - __(Dmitry Bochkarev)__ fix(specs): создавать при запуске теста картинка.jpg
+ * 2015-10-20 [da26553](../../commit/da26553) - __(Denis Korobitcin)__ fix(callbacks): fixed upload on nil local file
+ * 2015-08-11 [fe42c2a](../../commit/fe42c2a) - __(Dmitry Bochkarev)__ fix: не преобразовывать служебные символы в слова
+ * 2015-06-01 [906b2e3](../../commit/906b2e3) - __(Simeon Movchan)__ Release 1.0.0
+ * 2015-05-26 [e0de0d6](../../commit/e0de0d6) - __(Simeon Movchan)__ feat(gemspec): поддержка rails 4.2 и переход на aws-sdk
+
+#### v0.2.1
+ * 2015-10-22 [fa6fc29](../../commit/fa6fc29) - __(Michail Merkushin)__ Release 0.2.1
+ * 2015-10-20 [eac0f48](../../commit/eac0f48) - __(Dmitry Bochkarev)__ fix(specs): создавать при запуске теста картинка.jpg
+ * 2015-10-20 [f8d4130](../../commit/f8d4130) - __(Denis Korobitcin)__ fix(callbacks): fixed upload on nil local file
+
+#### v0.2.0
+ * 2015-10-13 [66cdb4e](../../commit/66cdb4e) - __(Semyon Pupkov)__ Release 0.2.0
+ * 2015-10-12 [9d3c74e](../../commit/9d3c74e) - __(Semyon Pupkov)__ feature: save origin file name
+
+#### v0.1.1
+ * 2015-10-07 [0ce9816](../../commit/0ce9816) - __(Semyon Pupkov)__ Release 0.1.1
+ * 2015-10-06 [9f273e0](../../commit/9f273e0) - __(Semyon Pupkov)__ Add missing dependency
+
+#### v0.1.0
+ * 2015-07-23 [a5a6e9d](../../commit/a5a6e9d) - __(Simeon Movchan)__ Release 0.1.0
+ * 2015-07-21 [34dbce5](../../commit/34dbce5) - __(Dmitry Bochkarev)__ feature: возможность переопределить максимальный размер файла и типы допустимых фалов через конфиг
+
+#### v1.0.0
+ * 2015-06-01 [906b2e3](../../commit/906b2e3) - __(Simeon Movchan)__ Release 1.0.0
  * 2015-05-26 [e0de0d6](../../commit/e0de0d6) - __(Simeon Movchan)__ feat(gemspec): поддержка rails 4.2 и переход на aws-sdk
 
 #### v0.0.4
