@@ -1,5 +1,4 @@
 # coding: utf-8
-require 'resque-integration'
 
 class AmazonS3UploadJob
   include Resque::Integration
