@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-given'
   spec.add_development_dependency 'rspec-collection_matchers'
   spec.add_development_dependency 'factory_girl_rails', '>= 3.1'
-  spec.add_development_dependency 'shoulda-matchers', '~> 2.0'
+  spec.add_development_dependency 'shoulda-matchers', '< 3'
   spec.add_development_dependency 'webmock'
   spec.add_development_dependency 'appraisal', '>= 1.0.2'
   spec.add_development_dependency 'combustion', '>= 0.5.3'
