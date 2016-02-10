@@ -26,3 +26,7 @@ bundler/install:
 
 appraisal/install:
 	${BUNDLE} exec ${APPRAISAL} install
+
+clean:
+	-rm -rf gemfiles
+	-rm -rf Gemfile.lock
