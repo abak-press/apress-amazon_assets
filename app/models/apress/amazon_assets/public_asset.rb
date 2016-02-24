@@ -10,7 +10,8 @@ module Apress
                         :path => ":rails_root/public/system/public_assets/:id_partition/:basename.:extension",
                         :url => "#{ActionController::Base.asset_host}/system/public_assets/:id_partition/:basename.:extension",
                         :use_timestamp => false,
-                        :filename_cleaner => ->(filename) { filename }
+                        :filename_cleaner => ->(filename) { filename },
+                        :validate_media_type => false
 
       has_attached_file :remote,
                         :storage => :s3,
@@ -21,7 +22,8 @@ module Apress
                         :path => "public_assets/:id_partition/:basename.:extension",
                         :url => "https://s3.amazonaws.com/#{S3_BUCKET}/public_assets/:id_partition/:basename.:extension",
                         :use_timestamp => false,
-                        :filename_cleaner => ->(filename) { filename }
+                        :filename_cleaner => ->(filename) { filename },
+                        :validate_media_type => false
 
       include ::Apress::AmazonAssets::Concerns::BaseAsset
     end
