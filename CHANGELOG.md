@@ -1,5 +1,11 @@
 
 #### [Current]
+ * 2016-02-24 [117aedb](../../commit/117aedb) - __(Dmitry Bochkarev)__ fix: отключение проверки на подмену расширения
+ * 2016-02-09 [95ec32a](../../commit/95ec32a) - __(Dmitry Bochkarev)__ fix: noop filename cleaner for paperclip
+ * 2015-10-12 [31abc37](../../commit/31abc37) - __(Semyon Pupkov)__ feature: save origin file name
+
+#### v1.1.0
+ * 2015-12-22 [0ce815a](../../commit/0ce815a) - __(Simeon Movchan)__ Release 1.1.0
  * 2015-12-22 [3a3a9c1](../../commit/3a3a9c1) - __(Dmitry Bochkarev)__ chore: джоб для очистки локальных файлов
 
 #### v1.0.1
