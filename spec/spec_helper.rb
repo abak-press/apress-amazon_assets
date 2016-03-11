@@ -22,6 +22,7 @@ require 'webmock/rspec'
 
 require 'test_after_commit'
 require 'vcr'
+require 'apress/api/testing/json_matcher'
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/cassettes'
