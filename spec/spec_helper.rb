@@ -4,6 +4,8 @@ require 'bundler/setup'
 require 'simplecov'
 SimpleCov.start 'rails' do
   minimum_coverage 95
+  add_filter 'lib/apress/amazon_assets/version'
+  add_filter 'lib/apress'
 end
 
 require 'apress/amazon_assets'
