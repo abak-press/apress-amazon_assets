@@ -4,6 +4,8 @@ require 'bundler/setup'
 require 'simplecov'
 SimpleCov.start 'rails' do
   minimum_coverage 95
+  add_filter 'lib/apress/amazon_assets/version'
+  add_filter 'lib/apress'
 end
 
 require 'apress/amazon_assets'
@@ -22,6 +24,7 @@ require 'webmock/rspec'
 
 require 'test_after_commit'
 require 'vcr'
+require 'apress/api/testing/json_matcher'
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/cassettes'
