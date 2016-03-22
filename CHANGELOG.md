@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2016-03-22 [cf8ea04](../../commit/cf8ea04) - __(Denis Korobitcin)__ feature(api): added file type and size
+ * 2016-03-15 [3a3c831](../../commit/3a3c831) - __(Denis Korobitcin)__ Release 0.2.2
+
+#### v0.2.2
  * 2016-03-14 [908f5e7](../../commit/908f5e7) - __(Denis Korobitcin)__ chore: filtred out unneeded files from coverage
  * 2016-03-11 [6312287](../../commit/6312287) - __(Denis Korobitcin)__ chore: remove gemfiles for appraisals
  * 2016-03-11 [08399e1](../../commit/08399e1) - __(Denis Korobitcin)__ feature(api): added assets controller
