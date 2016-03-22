@@ -18,9 +18,11 @@ Status: 200
 
 {
   "asset": {
-    "id": 9999,
-    "file": "http://s3.amazonaws.com/pulscen_production/public_assets/000/000/185/2fc7__sports-q-c-1920-1895-3.jpg",
-    "origin_file_name": "sports-q-c-1920-1895-3.jpg"
+    "id": 185,
+    "file": "http://s3.amazonaws.com/pulscen_development/public_assets/000/000/185/2fc7__sports-q-c-1920-1895-3.jpg",
+    "origin_file_name": "sports-q-c-1920-1895-3.jpg",
+    "file_size": 395316,
+    "file_content_type": "image/jpeg"
   }
 }
 ```

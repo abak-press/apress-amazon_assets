@@ -12,10 +12,14 @@ RSpec.describe 'apress/amazon_assets/api/v1/assets/show.json.jbuilder', type: :v
             id
             file
             origin_file_name
+            file_size
+            file_content_type
           ),
           id: {type: 'integer'},
           file: {type: 'string'},
-          origin_file_name: {type: 'string'}
+          origin_file_name: {type: 'string'},
+          file_size: {type: 'integer'},
+          file_content_type: {type: 'string'}
         }
       }
     }.with_indifferent_access
