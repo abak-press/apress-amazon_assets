@@ -276,4 +276,62 @@ shared_examples_for 'base asset' do |factory_name|
 
     it { expect(subject.file_name).to eq subject.remote_file_name }
   end
+
+  describe '#file_content_type' do
+    let(:file) { File.new('spec/fixtures/assets/test.png') }
+
+    context 'with both files' do
+      before do
+        subject.local = file
+        subject.remote = file
+      end
+
+      it { expect(subject.file_content_type).to eq 'image/png' }
+    end
+
+    context 'with local file only' do
+      before do
+        subject.local = file
+      end
+
+      it { expect(subject.file_content_type).to eq 'image/png' }
+    end
+
+    context 'with remote file only' do
+      before do
+        subject.local = file
+      end
+
+      it { expect(subject.file_content_type).to eq 'image/png' }
+    end
+  end
+
+  describe '#file_size' do
+    let(:file) { File.new('spec/fixtures/assets/test.png') }
+
+    context 'with both files' do
+      before do
+        subject.local = file
+        subject.remote = file
+      end
+
+      it { expect(subject.file_size).to eq 827 }
+    end
+
+    context 'with local file only' do
+      before do
+        subject.local = file
+      end
+
+      it { expect(subject.file_size).to eq 827 }
+    end
+
+    context 'with remote file only' do
+      before do
+        subject.local = file
+      end
+
+      it { expect(subject.file_size).to eq 827 }
+    end
+  end
 end

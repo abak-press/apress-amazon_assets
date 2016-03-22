@@ -77,6 +77,28 @@ module Apress
           File.basename(current_file.path) if current_file && current_file.path.present?
         end
 
+        # Public: Возвращает размер файла, либо с амазона, либо локальное.
+        #
+        # Returns Integer.
+        def file_size
+          if remote?
+            remote_file_size
+          else
+            local_file_size
+          end
+        end
+
+        # Public: Возвращает тип файла, либо с амазона, либо локальное.
+        #
+        # Returns String.
+        def file_content_type
+          if remote?
+            remote_content_type
+          else
+            local_content_type
+          end
+        end
+
         private
 
         # Internal: Проектный конфиг для amazon_assets.
