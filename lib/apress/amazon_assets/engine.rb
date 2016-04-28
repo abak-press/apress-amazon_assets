@@ -5,6 +5,7 @@ module Apress
   module AmazonAssets
     class Engine < ::Rails::Engine
       config.autoload_paths += Dir["#{config.root}/lib"]
+      config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
 
       # Initializer allows to use engine factories
       # from a project which depends on the engine
