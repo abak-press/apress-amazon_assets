@@ -4,12 +4,12 @@ require 'rails'
 module Apress
   module AmazonAssets
     class Engine < ::Rails::Engine
+      config.autoload_paths += Dir["#{config.root}/app/models/concerns", "#{config.root}/lib"]
+
       initializer :apress_amazon_assets, before: :load_init_rb do |app|
         unless app.root.to_s.match root.to_s
           app.config.paths['db/migrate'].concat config.paths['db/migrate'].expanded
         end
-
-        app.config.autoload_paths += [root.join('lib')]
       end
 
       initializer :apress_amazon_assets_config, before: :load_config_initializers do |app|
