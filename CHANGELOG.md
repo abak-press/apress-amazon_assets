@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2016-04-28 [453db3d](../../commit/453db3d) - __(Salahutdinov Dmitry)__ fix: allow assets to use for another database
+
+#### v0.2.3
+ * 2016-03-22 [9f62585](../../commit/9f62585) - __(Denis Korobitcin)__ Release 0.2.3
  * 2016-03-22 [cf8ea04](../../commit/cf8ea04) - __(Denis Korobitcin)__ feature(api): added file type and size
  * 2016-03-15 [3a3c831](../../commit/3a3c831) - __(Denis Korobitcin)__ Release 0.2.2
 
