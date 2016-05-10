@@ -4,8 +4,8 @@ require 'stringex'
 
 module Apress
   module AmazonAssets
-    module Concerns
-      module BaseAsset
+    module Assets
+      module Base
         extend ActiveSupport::Concern
 
         STORAGE_TIME_OF_LOCAL_FILE = 1.day
