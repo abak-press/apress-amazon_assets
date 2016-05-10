@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2016-05-06 [45e9c96](../../commit/45e9c96) - __(Salahutdinov Dmitry)__ fix: allow assets to use for another database
+
+#### v1.3.0
+ * 2016-05-10 [90ce67f](../../commit/90ce67f) - __(Simeon Movchan)__ Release 1.3.0
  * 2016-03-22 [4175efb](../../commit/4175efb) - __(Denis Korobitcin)__ feature(api): added file type and size
  * 2016-03-11 [5eef938](../../commit/5eef938) - __(Denis Korobitcin)__ chore: remove gemfiles for appraisals
  * 2016-03-11 [ce61a06](../../commit/ce61a06) - __(Denis Korobitcin)__ feature(api): added assets controller
