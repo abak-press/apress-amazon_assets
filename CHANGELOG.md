@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2016-05-12 [604d87a](../../commit/604d87a) - __(Pold)__ fix(config) autoload paths
+
+#### v1.4.0
+ * 2016-05-10 [6c23966](../../commit/6c23966) - __(Simeon Movchan)__ Release 1.4.0
  * 2016-05-06 [45e9c96](../../commit/45e9c96) - __(Salahutdinov Dmitry)__ fix: allow assets to use for another database
 
 #### v1.3.0
