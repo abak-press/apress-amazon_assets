@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2016-05-17 [de85c46](../../commit/de85c46) - __(Dmitry Bochkarev)__ fix: правильное название классов в тасках по очистке
+
+#### v1.4.1
+ * 2016-05-12 [c75e5a0](../../commit/c75e5a0) - __(Dmitry Bochkarev)__ Release 1.4.1
  * 2016-05-12 [604d87a](../../commit/604d87a) - __(Pold)__ fix(config) autoload paths
 
 #### v1.4.0
