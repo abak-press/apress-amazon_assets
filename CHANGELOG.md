@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2016-05-18 [467e836](../../commit/467e836) - __(Denis Korobicyn)__ fix: added file to_s for Marshal.dump (#27)
+
+#### v1.4.2
+ * 2016-05-17 [79f0761](../../commit/79f0761) - __(Dmitry Bochkarev)__ Release 1.4.2
  * 2016-05-17 [de85c46](../../commit/de85c46) - __(Dmitry Bochkarev)__ fix: правильное название классов в тасках по очистке
 
 #### v1.4.1
