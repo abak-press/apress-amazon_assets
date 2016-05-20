@@ -4,9 +4,9 @@ module Apress
       module Public
         extend ActiveSupport::Concern
 
-        included do
-          S3_BUCKET = "#{APP_NAME}#{"_#{Rails.env}" unless Rails.env.production?}".freeze
+        S3_BUCKET = "#{APP_NAME}#{"_#{Rails.env}" unless Rails.env.production?}".freeze
 
+        included do
           has_attached_file :local,
                             path: ":rails_root/public/system/public_assets/:id_partition/:basename.:extension",
                             url: "#{ActionController::Base.asset_host}/system/public_assets/:id_partition/:basename.:extension",
