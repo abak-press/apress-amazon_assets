@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2016-05-20 [a23f063](../../commit/a23f063) - __(Denis Korobicyn)__ chore: fix already initialized constant S3_BUCKET
+
+#### v1.4.3
+ * 2016-05-18 [ba6afda](../../commit/ba6afda) - __(Denis Korobicyn)__ Release 1.4.3
  * 2016-05-18 [467e836](../../commit/467e836) - __(Denis Korobicyn)__ fix: added file to_s for Marshal.dump (#27)
 
 #### v1.4.2
