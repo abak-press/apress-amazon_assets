@@ -1,0 +1,13 @@
+@import './icons';
+
+@function get-icon-url($icon-name, $icons: $icons) {
+  $svg-string: '';
+
+  @each $icon in $icons {
+    @if ($icon-name == nth($icon, 1)) {
+      $svg-string: nth($icon, 2);
+    }
+  }
+
+  @return url("data:image/svg+xml;base64,#{base64Encode($svg-string)}");
+}

@@ -1,0 +1,76 @@
+@import './icons';
+@import './functions';
+
+$left-indent: 27px;
+
+@mixin small-icon {
+  cursor: pointer; width: 12px; height: 12px;
+}
+
+@mixin inline-block {
+  display: inline-block; vertical-align: middle;
+}
+
+.attachments-fields {
+  &,
+  & * { box-sizing: border-box; }
+}
+
+.attachments-fields-row {
+  float: left; width: 50%; padding: 0 0 0 5px;
+
+  &:first-child { padding: 0 5px 0 $left-indent; }
+}
+
+.attachments-fields-item {
+  margin: 8px 0 0; font-size: 12px;
+
+  &:first-child { margin: 0; }
+}
+.attachments-fields-item-content { @include inline-block; margin: 0 10px 0 0; }
+.attachments-fields-item-title { @include inline-block; max-width: 190px; margin: 0 10px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.attachments-fields-item-size { @include inline-block; margin: 2px 0 0; color: #999; }
+
+.attachments-fields-link {
+  @include inline-block; cursor: pointer; position: relative; margin: 0 0 10px (-$left-indent); padding: 0 0 0 $left-indent; overflow: hidden; color: #06c;
+
+  &.disabled {
+    color: #666;
+
+    .attachments-fields-link-controller { display: none; }
+    .attachments-fields-icon {
+      &.clip { visibility: hidden; }
+      &.clip-disabled { visibility: visible; }
+    }
+  }
+}
+.attachments-fields-link-controller { position: absolute; cursor: pointer; top: -10px; right: -10px; width: 10000px; height: 10000px; opacity: 0; }
+.attachments-fields-link-text { display: inline-block; cursor: pointer; border-bottom: 1px dashed; user-select: none; }
+
+.attachments-fields-errors { display: none; margin: 10px 0 0; color: #f30; font-size: 11px; }
+
+.attachments-fields-tips { font-size: 11px; color: #999; }
+
+@each $icon in $icons {
+  $icon-name: nth($icon, 1);
+  .attachments-fields-icon.#{$icon-name}:before { content: get-icon-url($icon-name); display: inline-block; width: 20px; height: 20px; margin: 0 10px 0 0; }
+}
+
+.attachments-fields-icon {
+  @include inline-block; line-height: 1;
+
+  &.delete {
+    opacity: .7; margin: 2px 0 0;
+
+    &:before { @include small-icon; }
+    &:hover { opacity: 1; }
+  }
+  &.clip,
+  &.clip-disabled {
+    position: absolute; left: 0; top: 0;
+
+    &:before { width: 15px; height: 15px; }
+  }
+  &.clip-disabled { visibility: hidden; }
+  &.question:before { @include small-icon; }
+}

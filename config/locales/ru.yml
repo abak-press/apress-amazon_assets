@@ -1,0 +1,22 @@
+ru:
+  views:
+    apress:
+      amazon_assets:
+        attachments_fields:
+          link:
+            text: 'Прикрепить файл'
+          requirements:
+            size: 'Размер одного файла не должен превышать %{size}.'
+            format: 'Допустимые форматы файлов: txt, .csv, .xls, .xlsx, .png, .jpg, .rar, .zip, .doc, .pdf, .docx, .bmp.'
+            count:
+              one: 'Вы можете прикрепить не более %{count} файла.'
+              few: 'Вы можете прикрепить не более %{count} файлов.'
+              many: 'Вы можете прикрепить не более %{count} файлов.'
+              other: 'Вы можете прикрепить не более %{count} файлов.'
+          units_of_measure:
+            KB: 'Кб'
+            MB: 'Мб'
+            byte: 'байт'
+          error_messages:
+            format_is_invalid: 'Выбран файл некорректного формата'
+            size_is_invalid: 'Размер файла превышает %{size}'
