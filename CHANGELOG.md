@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2016-09-13 [dd90452](../../commit/dd90452) - __(Leontyev Kirill)__ feature(frontend): Extract module to work with files into apress-amazon_assets
+
+#### v1.4.4
+ * 2016-05-23 [8ba66b2](../../commit/8ba66b2) - __(Denis Korobicyn)__ Release 1.4.4
  * 2016-05-20 [a23f063](../../commit/a23f063) - __(Denis Korobicyn)__ chore: fix already initialized constant S3_BUCKET
 
 #### v1.4.3
