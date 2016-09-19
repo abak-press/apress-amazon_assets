@@ -1,0 +1,11 @@
+.attachments-fields-item.js-file-item
+  %div{class: 'attachments-fields-icon {{ext}}'}
+  .attachments-fields-item-content
+    .attachments-fields-item-title {{name}}
+    {{#if fullSize}}
+    .attachments-fields-item-size {{fullSize}}
+    {{/if}}
+  .attachments-fields-icon.delete.js-detach-file{data: {'file-field-name' => '{{fileFieldName}}'}}
+
+  %input{type: 'hidden', name: '{{destroyFieldName}}', value: 1, disabled: true}
+  %input{type: 'hidden', name: '{{idFieldName}}', value: '{{id}}', disabled: true}
