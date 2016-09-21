@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2016-09-21 [8889e12](../../commit/8889e12) - __(Leontyev Kirill)__ fix(frontend): Set correct locales path [skip ci]
+
+#### v1.5.1
+ * 2016-09-21 [d354870](../../commit/d354870) - __(Denis Korobicyn)__ Release 1.5.1
  * 2016-09-21 [5f68d14](../../commit/5f68d14) - __(Leontyev Kirill)__ fix(frontend): Initial index value should be equal 0 [skip ci]
 
 #### v1.5.0
