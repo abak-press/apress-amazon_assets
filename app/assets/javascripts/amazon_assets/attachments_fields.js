@@ -78,7 +78,7 @@ app.modules.attachmentsFields = (function(self) {
   }
 
   function _prepareDataBeforeRendering(file) {
-    file.index = _$rootEl.find('.js-file-item').length || 1;
+    file.index = _$rootEl.find('.js-file-item').length || 0;
     file.ext = _getFileExtension(file.name).toLowerCase();
     file.fullSize = file.size && _getFileSize(file.size);
     file.fileFieldName = _getFieldName('local', file.index);
