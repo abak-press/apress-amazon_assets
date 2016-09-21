@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2016-09-21 [5f68d14](../../commit/5f68d14) - __(Leontyev Kirill)__ fix(frontend): Initial index value should be equal 0 [skip ci]
+
+#### v1.5.0
+ * 2016-09-19 [b78beeb](../../commit/b78beeb) - __(Michail Merkushin)__ Release 1.5.0
  * 2016-09-13 [dd90452](../../commit/dd90452) - __(Leontyev Kirill)__ feature(frontend): Extract module to work with files into apress-amazon_assets
 
 #### v1.4.4
