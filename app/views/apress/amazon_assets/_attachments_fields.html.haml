@@ -27,7 +27,7 @@
       .attachments-fields-errors-item.js-error-message-format
         = t('views.apress.amazon_assets.attachments_fields.error_messages.format_is_invalid')
         %a.attachments-fields-icon.question.js-qtip-icon{data: {content: t('views.apress.amazon_assets.attachments_fields.requirements.format',
-                                                                                count: options[:max_count])}}
+                                                                           count: options[:max_count])}}
       .attachments-fields-errors-item.js-error-message-size
         = t('views.apress.amazon_assets.attachments_fields.error_messages.size_is_invalid',
-            size: "#{options[:max_size]} #{t('views.apress.amazon_assets.attachments_fields.MB')}")
+            size: "#{options[:max_size]} #{t('views.apress.amazon_assets.attachments_fields.units_of_measure.MB')}")
