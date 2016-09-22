@@ -1,5 +1,9 @@
 
 #### [Current]
+ * 2016-09-22 [74264f5](../../commit/74264f5) - __(Leontyev Kirill)__ feature(frontend): Add gif icon [skip ci]
+
+#### v1.5.2
+ * 2016-09-21 [6c8ddfb](../../commit/6c8ddfb) - __(Michail Merkushin)__ Release 1.5.2
  * 2016-09-21 [8889e12](../../commit/8889e12) - __(Leontyev Kirill)__ fix(frontend): Set correct locales path [skip ci]
 
 #### v1.5.1
