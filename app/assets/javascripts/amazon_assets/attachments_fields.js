@@ -104,6 +104,7 @@ app.modules.attachmentsFields = (function(self) {
 
           _renderAttachedFile(data);
           _renewFileInput($fileInput, ++data.index);
+          $doc.trigger('attachFile:attachAndDetachFile', [$fileInput]);
         } else {
           _showFileValidationMessage(rejectedFile.length ? rejectedFile[0] : {});
           $fileInput.val('');
@@ -113,9 +114,11 @@ app.modules.attachmentsFields = (function(self) {
     });
 
     _$rootEl.on('click', '.js-detach-file', function() {
-      _detachFile($(this));
+      var $this = $(this);
+      _detachFile($this);
       _disableOrEnableButton();
       _hideErrorMessages();
+      $doc.trigger('detachFile:attachAndDetachFile', [$this]);
     });
   }
 
