@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 if RUBY_VERSION < '2'
   gem 'mime-types', '< 3.0'
   gem 'pg', '< 0.19'
+else
+  gem 'test-unit'
 end
 
 gemspec
