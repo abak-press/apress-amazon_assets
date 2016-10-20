@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'rails', '>= 3.1.12', '< 5.0'
   spec.add_runtime_dependency 'pg'
-  spec.add_runtime_dependency 'paperclip', '>= 4.2'
+  spec.add_runtime_dependency 'paperclip', '>= 4.2', '< 5'
   spec.add_runtime_dependency 'resque-integration'
   spec.add_runtime_dependency 'stringex'
   spec.add_runtime_dependency 'aws-sdk', '>= 1.6', '< 2.0'

@@ -3,7 +3,7 @@ appraise 'rails3.1' do
   gem 'test_after_commit', '~> 0.2.3', require: false
   gem "active_support-lazy_load_patch", require: false
   gem 'strong_parameters', '>= 0.2'
-end
+end if RUBY_VERSION < '2'
 
 appraise 'rails3.2' do
   gem 'rails', '~> 3.2.0'
