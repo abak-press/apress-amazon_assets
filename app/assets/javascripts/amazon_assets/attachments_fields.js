@@ -8,12 +8,12 @@
 app.modules.attachmentsFields = (function(self) {
   var _$rootEl, _validFormat, _validSize;
 
-  function _showFileValidationMessage(file) {
+  function _toggleFileValidationMessage(file) {
     // допускаем, что файлы могут быть валидны при отсутствующих типе и/или размере
     // поэтому сообщения об ошибке выводим в случае, если точно знаем, что формат и/или размер невалидны
-    _$rootEl.find('.js-error-messages').show()
-      .find('.js-error-message-format').toggle(!!file.type && !_validFormat).end()
-      .find('.js-error-message-size').toggle(!!file.size && !_validSize);
+    _$rootEl
+      .find('.js-error-message-format').toggleClass('dn', !file || !file.type || _validFormat).end()
+      .find('.js-error-message-size').toggleClass('dn', !file || !file.size || _validSize);
   }
 
   function _getFileSize(fileSize) {
@@ -67,10 +67,6 @@ app.modules.attachmentsFields = (function(self) {
       .toggleClass('disabled', _$rootEl.find('.js-file-item:visible').length === _$rootEl.data('max-count'));
   }
 
-  function _hideErrorMessages() {
-    _$rootEl.find('.js-error-messages').hide();
-  }
-
   function _renewFileInput($fileInput, index) {
     $fileInput.after(
       $fileInput.clone(true).attr({name: _getFieldName('local', index)}).val('')
@@ -91,13 +87,27 @@ app.modules.attachmentsFields = (function(self) {
     _$rootEl.find('[name="' + $detachLink.data('file-field-name') + '"]').prop({disabled: true});
   }
 
+  function _validateComponent(isValid) {
+    if (_$rootEl.is('[data-required]')) {
+      _$rootEl.find('.js-file-item:visible').length ? isValid.resolve() : isValid.reject();
+    } else {
+      isValid.resolve();
+    }
+
+    return isValid;
+  }
+
+  function _toggleRequiredFieldValidationMessage(display) {
+    _$rootEl.find('.js-error-message-required-field').toggleClass('dn', !display);
+  }
+
   function _listener() {
     FileAPI.event.on(_$rootEl.find('.js-attach-file-button')[0], 'change', function(event) {
       var
         file = FileAPI.getFiles(event),
         $fileInput = $(event.target);
 
-      _hideErrorMessages();
+      _toggleFileValidationMessage();
       FileAPI.filterFiles(file, _filterFile, function(file, rejectedFile) {
         if (file.length) {
           var data = _prepareDataBeforeRendering(file[0]);
@@ -105,21 +115,29 @@ app.modules.attachmentsFields = (function(self) {
           _renderAttachedFile(data);
           _renewFileInput($fileInput, ++data.index);
           $doc.trigger('attachFile:attachAndDetachFile', [$fileInput]);
+          _toggleRequiredFieldValidationMessage();
         } else {
-          _showFileValidationMessage(rejectedFile.length ? rejectedFile[0] : {});
+          _toggleFileValidationMessage(rejectedFile.length ? rejectedFile[0] : {});
           $fileInput.val('');
         }
         _disableOrEnableButton();
       });
     });
 
-    _$rootEl.on('click', '.js-detach-file', function() {
-      var $this = $(this);
-      _detachFile($this);
-      _disableOrEnableButton();
-      _hideErrorMessages();
-      $doc.trigger('detachFile:attachAndDetachFile', [$this]);
-    });
+    _$rootEl
+      .on('click', '.js-detach-file', function() {
+        var $this = $(this);
+
+        _detachFile($this);
+        _disableOrEnableButton();
+        _toggleFileValidationMessage();
+        $doc.trigger('detachFile:attachAndDetachFile', [$this]);
+      })
+      .on('validateComponent:attachmentsFields', function(event, isValid) {
+        _validateComponent(isValid)
+          .done(function() { _toggleRequiredFieldValidationMessage(false); })
+          .fail(function() { _toggleRequiredFieldValidationMessage(true); });
+      });
   }
 
   self.load = function() {
