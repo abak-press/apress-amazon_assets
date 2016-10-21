@@ -1,6 +1,6 @@
 # Apress::AmazonAssets
 
-[![Dolly](http://dolly.railsc.ru/badges/abak-press/apress-amazon_assets/master)](http://dolly.railsc.ru/projects/30/builds/latest/?ref=master)
+[![Build Status](https://drone.railsc.ru/api/badges/abak-press/apress-amazon_assets/status.svg)](https://drone.railsc.ru/abak-press/apress-amazon_assets)
 [![Code Climate](https://codeclimate.com/repos/543e65e6e30ba041d401e98d/badges/fd82abeaab68a66be573/gpa.svg)](https://codeclimate.com/repos/543e65e6e30ba041d401e98d/feed)
 
 Гем позволяет хранить файлы на Amazon S3.
@@ -44,7 +44,7 @@ end
 
 Вначале файлы загружаются локально на сервер и потом через resque загружаются на амазон. Очередь resque называется `upload`.
 
-В проектном crontab необходимо вызывать автоочистку через rake задачу 
+В проектном crontab необходимо вызывать автоочистку через rake задачу
 
 ```
 rake amazon:private_assets:autoclean

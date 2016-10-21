@@ -19,6 +19,8 @@ require 'factory_girl_rails'
 require 'paperclip/matchers'
 require 'shoulda-matchers'
 require 'webmock/rspec'
+require 'redis-classy'
+require 'mock_redis'
 
 require 'test_after_commit'
 require 'vcr'
@@ -36,6 +38,18 @@ end
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Paperclip::Shoulda::Matchers
+
+  Redis.current = MockRedis.new
+  Redis::Classy.db = Redis.current
+
+  config.before(:all) do
+    Redis::Classy.flushdb
+  end
+
+  config.after(:all) do
+    Redis::Classy.flushdb
+    Redis::Classy.quit
+  end
 
   config.infer_spec_type_from_file_location!
 
