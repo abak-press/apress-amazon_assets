@@ -1,6 +1,7 @@
 %div{class: 'attachments-fields js-attachments-fields',
      data: {'attached-files' => options[:attachments].to_json,
             'name-template' => options[:name_template],
+            'required' => options[:required],
             'max-size' => options[:max_size],
             'max-count' => options[:max_count],
             'permitted-types' => options[:permitted_types].to_json,
@@ -24,10 +25,12 @@
   .attachments-fields-row
     .js-attached-files
     .attachments-fields-errors.js-error-messages
-      .attachments-fields-errors-item.js-error-message-format
+      .attachments-fields-errors-item.dn.js-error-message-format
         = t('views.apress.amazon_assets.attachments_fields.error_messages.format_is_invalid')
         %a.attachments-fields-icon.question.js-qtip-icon{data: {content: t('views.apress.amazon_assets.attachments_fields.requirements.format',
                                                                            count: options[:max_count])}}
-      .attachments-fields-errors-item.js-error-message-size
+      .attachments-fields-errors-item.dn.js-error-message-size
         = t('views.apress.amazon_assets.attachments_fields.error_messages.size_is_invalid',
             size: "#{options[:max_size]} #{t('views.apress.amazon_assets.attachments_fields.units_of_measure.MB')}")
+      .attachments-fields-errors-item.dn.js-error-message-required-field
+        = t('views.apress.amazon_assets.attachments_fields.error_messages.required_field')
