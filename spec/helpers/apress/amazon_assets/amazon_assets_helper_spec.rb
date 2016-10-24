@@ -8,9 +8,7 @@ RSpec.describe Apress::AmazonAssets::AmazonAssetsHelper, type: :helper do
     let(:options) { {attachments: [], max_size: 0, max_count: 0, attach_to: nil, permitted_type: []} }
 
     it do
-      expect(helper).to receive(:render).with(
-        described_class::DEFAULT_ATTACHMENT_FIELDS_PATH, form: form, options: options
-      )
+      expect(helper).to receive(:render).with('apress/amazon_assets/attachments_fields', form: form, options: options)
       helper.attachments_fields(form, options)
     end
   end

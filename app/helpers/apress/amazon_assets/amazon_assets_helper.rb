@@ -1,7 +1,6 @@
 module Apress
   module AmazonAssets
     module AmazonAssetsHelper
-      DEFAULT_ATTACHMENT_FIELDS_PATH = 'apress/amazon_assets/attachments_fields'.freeze
       # Public: виджет прикрепления/удаления файлов
       #
       # form    - ActionView::Helpers::FormBuilder
@@ -15,7 +14,7 @@ module Apress
       #
       # Returns String
       def attachments_fields(form, options = {})
-        options[:path] ||= DEFAULT_ATTACHMENT_FIELDS_PATH
+        options[:path] ||= 'apress/amazon_assets/attachments_fields'
 
         if options[:attach_to]
           file_field_index = options[:attachments] ? options[:attachments].size : 0
