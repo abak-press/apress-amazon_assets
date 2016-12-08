@@ -21,3 +21,5 @@ ru:
             format_is_invalid: 'Выбран файл некорректного формата'
             size_is_invalid: 'Размер файла превышает %{size}'
             required_field: 'Не может быть пустым'
+          titles:
+            detach: 'Удалить файл'
