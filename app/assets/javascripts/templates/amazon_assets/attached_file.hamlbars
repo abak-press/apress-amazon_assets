@@ -5,7 +5,8 @@
     {{#if fullSize}}
     .attachments-fields-item-size {{fullSize}}
     {{/if}}
-  .attachments-fields-icon.delete.js-detach-file{data: {'file-field-name' => '{{fileFieldName}}'}}
+  .attachments-fields-icon.delete.js-detach-file{data: {'file-field-name' => '{{fileFieldName}}'},
+                                                 title: I18n.t('views.apress.amazon_assets.attachments_fields.titles.detach')}
 
   %input{type: 'hidden', name: '{{destroyFieldName}}', value: 1, disabled: true}
   %input{type: 'hidden', name: '{{idFieldName}}', value: '{{id}}', disabled: true}
