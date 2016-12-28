@@ -119,6 +119,7 @@ app.modules.attachmentsFields = (function(self) {
         } else {
           _toggleFileValidationMessage(rejectedFile.length ? rejectedFile[0] : {});
           $fileInput.val('');
+          $doc.trigger('error:attachAndDetachFile');
         }
         _disableOrEnableButton();
       });
