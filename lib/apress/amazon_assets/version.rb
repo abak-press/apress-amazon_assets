@@ -1,5 +1,5 @@
 module Apress
   module AmazonAssets
-    VERSION = '1.5.3'
+    VERSION = '1.6.0'
   end
 end
