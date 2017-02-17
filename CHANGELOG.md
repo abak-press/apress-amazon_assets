@@ -1,5 +1,19 @@
 
 #### [Current]
+ * 2017-02-17 [a31058d](../../commit/a31058d) - __(Michail Merkushin)__ Release 1.6.0
+ * 2017-02-17 [973bb31](../../commit/973bb31) - __(Michail Merkushin)__ chore: Update dind
+ * 2017-02-17 [515b4a5](../../commit/515b4a5) - __(Michail Merkushin)__ chore: Relax redis-mutex
+ * 2016-12-22 [c9a59bc](../../commit/c9a59bc) - __(kozyr)__ feature(attachments): добавление ивента при прикреплении невалидного файла
+ * 2016-12-08 [200b7ce](../../commit/200b7ce) - __(kozyr)__ feature(order form): Отправка файла с форм создания заказа
+ * 2016-12-08 [3915f81](../../commit/3915f81) - __(Salahutdinov Dmitry)__ fix: public_suffix and webmockx lock for ruby 1.9
+ * 2016-10-24 [8a40d39](../../commit/8a40d39) - __(GIGrave)__ fix: no use freeze string in path
+ * 2016-10-21 [6306446](../../commit/6306446) - __(Leontyev Kirill)__ feature(frontend): Add optional component validation on attached files presence
+ * 2016-10-20 [b523eb9](../../commit/b523eb9) - __(Andrew N. Shalaev)__ fix: perform clean amazon private assets job in cron queue
+ * 2016-10-20 [3ee982d](../../commit/3ee982d) - __(Andrew N. Shalaev)__ chore: add droneio support
+ * 2016-09-26 [18de2f4](../../commit/18de2f4) - __(kozyr)__ feature(file attachment): триггеры событий [skip ci]
+
+#### v1.5.3
+ * 2016-09-22 [3a22874](../../commit/3a22874) - __(Michail Merkushin)__ Release 1.5.3
  * 2016-09-22 [74264f5](../../commit/74264f5) - __(Leontyev Kirill)__ feature(frontend): Add gif icon [skip ci]
 
 #### v1.5.2
