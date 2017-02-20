@@ -138,6 +138,9 @@ app.modules.attachmentsFields = (function(self) {
         _validateComponent(isValid)
           .done(function() { _toggleRequiredFieldValidationMessage(false); })
           .fail(function() { _toggleRequiredFieldValidationMessage(true); });
+      })
+      .on('click', '.js-attach-file-button', function() {
+        $doc.trigger('browseFiles:attachAndDetachFile', [$(this)]);
       });
   }
 
