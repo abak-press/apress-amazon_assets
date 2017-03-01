@@ -18,10 +18,9 @@ module Apress
                             storage: :s3,
                             s3_credentials: "#{Rails.root}/config/amazon_s3.yml",
                             s3_permissions: 'authenticated-read',
-                            s3_protocol: 'http',
+                            s3_protocol: 'https',
                             bucket: S3_BUCKET,
                             path: "assets/:id_partition/:basename.:extension",
-                            url: "https://s3.amazonaws.com/#{S3_BUCKET}/assets/:id_partition/:basename.:extension",
                             use_timestamp: false,
                             filename_cleaner: ->(filename) { filename },
                             validate_media_type: false

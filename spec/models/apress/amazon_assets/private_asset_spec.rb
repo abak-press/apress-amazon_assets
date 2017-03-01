@@ -32,7 +32,7 @@ describe Apress::AmazonAssets::PrivateAsset do
       let(:file) { File.new('spec/fixtures/assets/test.jpg') }
 
       let(:expected_path) { %r{assets/.*/test\.jpg} }
-      let(:expected_url) { %r{http://s3\.amazonaws\.com/amazon_assets_test/assets/.*/test\.jpg} }
+      let(:expected_url) { %r{https://s3\.amazonaws\.com/amazon_assets_test/assets/.*/test\.jpg} }
 
       before { subject.remote = file }
 
