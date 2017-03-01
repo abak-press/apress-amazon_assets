@@ -1,5 +1,11 @@
 
 #### [Current]
+ * 2017-03-01 [bef69dc](../../commit/bef69dc) - __(Michail Merkushin)__ Release 1.7.0
+ * 2017-03-01 [f4d5c69](../../commit/f4d5c69) - __(Michail Merkushin)__ feature: Use https protocol
+ * 2016-12-12 [8f35636](../../commit/8f35636) - __(kozyr)__ feature(order form): опциональная передача id для отслеживания нажатия по кнопке
+
+#### v1.6.0
+ * 2017-02-17 [7b43023](../../commit/7b43023) - __(Michail Merkushin)__ Update CHANGELOG.md
  * 2017-02-17 [a31058d](../../commit/a31058d) - __(Michail Merkushin)__ Release 1.6.0
  * 2017-02-17 [973bb31](../../commit/973bb31) - __(Michail Merkushin)__ chore: Update dind
  * 2017-02-17 [515b4a5](../../commit/515b4a5) - __(Michail Merkushin)__ chore: Relax redis-mutex
