@@ -23,3 +23,5 @@ ru:
             required_field: 'Не может быть пустым'
           titles:
             detach: 'Удалить файл'
+        file_item:
+          title: 'Скачать файл'

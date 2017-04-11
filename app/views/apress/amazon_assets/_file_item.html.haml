@@ -1,0 +1,13 @@
+:ruby
+  class_name = []
+  class_name << "#{local_assigns[:className]} #{file_ext_name(attachment.file_name)}"
+  class_name << 'fi-mod-with-icon' if local_assigns[:with_icon]
+
+%a.file-item{href: current_user.present? ? attachment.file.to_s : '#',
+             class: class_name,
+             download: true,
+             data: local_assigns[:data],
+             title: t('views.apress.amazon_assets.file_item.title')}
+  .fi-content>
+    .fi-title>= attachment.origin_file_name
+    .fi-size>= number_to_human_size(attachment.local_file_size).tr(' ', '')

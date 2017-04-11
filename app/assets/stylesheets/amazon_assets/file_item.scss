@@ -1,0 +1,14 @@
+@import './icons';
+@import './functions';
+
+.file-item {
+  display: inline-block; color: #333; font-size: 12px;
+  &.fi-mod-with-icon:before { content: ''; display: inline-block; vertical-align: middle; width: 20px; height: 20px; margin: 0 10px 0 0; background-size: contain !important; }
+  .fi-content { display: inline-block; vertical-align: middle; }
+  .fi-title { display: inline-block; max-width: 205px; vertical-align: middle; margin: 0 10px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #333; text-decoration: underline; }
+  .fi-size { display: inline-block; vertical-align: middle; color: #999; margin: 2px 0 0; }
+}
+@each $icon in $icons {
+  $icon-name: nth($icon, 1);
+  .file-item.fi-mod-with-icon.#{$icon-name}:before { content: get-icon-url($icon-name); }
+}
