@@ -238,20 +238,33 @@ shared_examples_for 'base asset' do |factory_name|
   describe '#copy_to_remote' do
     let(:file) { File.new('spec/fixtures/assets/test.png') }
 
-    subject { described_class.create! local: file }
+    context "when local is present" do
+      subject(:asset) { described_class.create! local: file }
 
-    before do
-      allow_any_instance_of(described_class).to receive(:queue_upload_to_s3)
+      before do
+        allow_any_instance_of(described_class).to receive(:queue_upload_to_s3)
 
-      VCR.use_cassette 'copy_to_remote', erb: {path: subject.local.url.sub(%r{.*/system/}, '')} do
-        subject.copy_to_remote
+        VCR.use_cassette 'copy_to_remote', erb: {path: asset.local.url.sub(%r{.*/system/}, '')} do
+          asset.copy_to_remote
+        end
+      end
+
+      it "uploads file to s3" do
+        expect(asset.remote).to be_present
+        expect(asset.remote_file_name).to eq asset.local_file_name
+        expect(asset.remote_file_size).to eq asset.local_file_size
+        expect(asset.remote_content_type).to eq asset.local_content_type
       end
     end
 
-    Then { expect(subject.remote).to be_present }
-    And  { expect(subject.remote_file_name).to eq subject.local_file_name }
-    And  { expect(subject.remote_file_size).to eq subject.local_file_size }
-    And  { expect(subject.remote_content_type).to eq subject.local_content_type }
+    context "when local is empty" do
+      subject(:asset) { described_class.create! local: nil }
+
+      it "do nothing" do
+        expect(asset.copy_to_remote).to be false
+        expect(asset.remote?).to be false
+      end
+    end
   end
 
   describe '#file' do
