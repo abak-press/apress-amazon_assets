@@ -50,10 +50,12 @@ module Apress
         #
         # Returns nothing.
         def copy_to_remote
+          original_file = nil
+          return false unless local?
           original_file = Paperclip.io_adapters.for(local)
-          update_attributes! remote: original_file
+          update_attributes!(remote: original_file) if original_file
         ensure
-          original_file.close unless original_file.closed?
+          original_file.close if original_file && !original_file.closed?
         end
 
         # Public: Возвращает файл, либо с амазона, либо локальный.

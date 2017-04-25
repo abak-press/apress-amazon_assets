@@ -45,4 +45,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov', '~> 0.10.0'
   spec.add_development_dependency 'vcr'
   spec.add_development_dependency 'json-schema'
+  spec.add_development_dependency 'test-unit'
+  spec.add_development_dependency 'pry-byebug'
 end

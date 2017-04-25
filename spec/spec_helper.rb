@@ -6,6 +6,7 @@ SimpleCov.start 'rails' do
   minimum_coverage 95
 end
 
+require 'pry-byebug'
 require 'apress/amazon_assets'
 
 require 'combustion'
