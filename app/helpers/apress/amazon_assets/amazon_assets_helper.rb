@@ -24,6 +24,8 @@ module Apress
 
         options[:attaching_disabled] = options[:attachments] && options[:attachments].size == options[:max_count]
 
+        options[:errors] = options[:attachments].map(&:errors) if options[:attachments].present?
+
         render options[:path], form: form, options: options
       end
     end
