@@ -4,6 +4,7 @@
             'required' => options[:required],
             'max-size' => options[:max_size],
             'max-count' => options[:max_count],
+            'errors' =>  options[:errors].to_json,
             'permitted-types' => options[:permitted_types].to_json,
             'units-of-measure' => {KB: t('views.apress.amazon_assets.attachments_fields.units_of_measure.KB'),
                                    MB: t('views.apress.amazon_assets.attachments_fields.units_of_measure.MB'),
