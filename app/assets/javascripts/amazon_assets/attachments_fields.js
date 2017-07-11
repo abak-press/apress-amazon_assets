@@ -101,8 +101,8 @@ app.modules.attachmentsFields = (function(self) {
     _$rootEl.find('.js-error-message-required-field').toggleClass('dn', !display);
   }
 
-  function _listener() {
-    FileAPI.event.on(_$rootEl.find('.js-attach-file-button')[0], 'change', function(event) {
+  function _fileApiListener(input) {
+    FileAPI.event.on(input, 'change', function(event) {
       var
         file = FileAPI.getFiles(event),
         $fileInput = $(event.target);
@@ -124,7 +124,9 @@ app.modules.attachmentsFields = (function(self) {
         _disableOrEnableButton();
       });
     });
+  }
 
+  function _listener() {
     _$rootEl
       .on('click', '.js-detach-file', function() {
         var $this = $(this);
@@ -140,6 +142,10 @@ app.modules.attachmentsFields = (function(self) {
           .fail(function() { _toggleRequiredFieldValidationMessage(true); });
       })
       .on('click', '.js-attach-file-button', function() {
+        _$rootEl = $(this).closest('.js-attachments-fields');
+
+        _fileApiListener(_$rootEl.find('.js-attach-file-button')[0]);
+
         $doc.trigger('browseFiles:attachAndDetachFile', [$(this)]);
       });
   }
