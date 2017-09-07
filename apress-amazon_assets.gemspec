@@ -28,8 +28,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'redis-classy', '~> 1.2'
   spec.add_runtime_dependency 'stringex'
   spec.add_runtime_dependency 'aws-sdk', '>= 1.6', '< 2.0'
-  spec.add_runtime_dependency 'apress-api', '>= 0.2.1'
-  spec.add_runtime_dependency 'apress-documentation', '>= 0.1.0'
+  spec.add_runtime_dependency 'apress-api', '>= 1.17.0'
+  spec.add_runtime_dependency 'apress-documentation', '>= 0.2.0'
 
   spec.add_development_dependency 'bundler', '>= 1.6'
   spec.add_development_dependency 'rake'
