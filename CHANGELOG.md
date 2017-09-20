@@ -1,6 +1,11 @@
+# v1.8.1
+
+* 2017-09-20 [94fa73e](../../commit/94fa73e) - __(Anastasia Zueva)__ release 1.8.1 
+* 2017-09-19 [228f9d6](../../commit/228f9d6) - __(Anastasia Zueva)__ fix(orders): fix qtip in ui dialog popup 
+https://jira.railsc.ru/browse/ORDERS-803
+
 # v1.8.0
 
-* 2017-09-07 [b6a67fa](../../commit/b6a67fa) - __(Denis Korobicyn)__ Release 1.8.0 
 * 2017-06-27 [0a1c948](../../commit/0a1c948) - __(Denis Korobicyn)__ fix: remove amazon api from documentation page 
 https://jira.railsc.ru/browse/PC4-19812
 
