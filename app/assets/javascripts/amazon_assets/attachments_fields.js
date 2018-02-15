@@ -9,10 +9,10 @@ app.modules.attachmentsFields = (function(self) {
   var _$rootEl, _validFormat, _validSize;
 
   function _toggleFileValidationMessage(file) {
-    // допускаем, что файлы могут быть валидны при отсутствующих типе и/или размере
-    // поэтому сообщения об ошибке выводим в случае, если точно знаем, что формат и/или размер невалидны
+    // допускаем, что файлы могут быть валидны при отсутствующем размере
+    // поэтому сообщения об ошибке выводим в случае, если точно знаем, что размер невалиден
     _$rootEl
-      .find('.js-error-message-format').toggleClass('dn', !file || !file.type || _validFormat).end()
+      .find('.js-error-message-format').toggleClass('dn', !file || _validFormat).end()
       .find('.js-error-message-size').toggleClass('dn', !file || !file.size || _validSize);
   }
 
@@ -58,8 +58,8 @@ app.modules.attachmentsFields = (function(self) {
     _validSize = file.size < _$rootEl.data('max-size') * FileAPI.MB;
 
     // допускаем, что файл может быть валиден,
-    // если по тем или иным причинам узнать тип или размер файла нет возможности
-    return (!file.type || _validFormat) && (!file.size || _validSize);
+    // если по тем или иным причинам узнать размер файла нет возможности
+    return _validFormat && (!file.size || _validSize);
   }
 
   function _disableOrEnableButton() {
