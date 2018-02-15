@@ -1,3 +1,9 @@
+# v1.9.0
+
+* 2018-02-15 [9a37402](../../commit/9a37402) - __(kozyrk)__ release 1.9.0 
+* 2018-02-15 [27656c5](../../commit/27656c5) - __(kozyrk)__ feature(attachments): убираем возможность прикреплять файлы, у которых нет типа 
+https://jira.railsc.ru/browse/ORDERS-1262
+
 # v1.8.1
 
 * 2017-09-20 [94fa73e](../../commit/94fa73e) - __(Anastasia Zueva)__ release 1.8.1 
