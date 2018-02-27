@@ -7,7 +7,7 @@ ru:
             text: 'Прикрепить файл'
           requirements:
             size: 'Размер одного файла не должен превышать %{size}.'
-            format: 'Допустимые форматы файлов: txt, .csv, .xls, .xlsx, .png, .jpg, .rar, .zip, .doc, .pdf, .docx, .bmp.'
+            format: 'Допустимые форматы файлов: txt, .csv, .xls, .xlsx, .png, .jpg, .zip, .doc, .pdf, .docx, .bmp.'
             count:
               one: 'Вы можете прикрепить не более %{count} файла.'
               few: 'Вы можете прикрепить не более %{count} файлов.'
