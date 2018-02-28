@@ -1,3 +1,9 @@
+# v1.9.1
+
+* 2018-02-27 [76c03f4](../../commit/76c03f4) - __(kozyrk)__ version 
+* 2018-02-27 [b22a9e5](../../commit/b22a9e5) - __(kozyrk)__ fix(attachments): иконка для файлов jpeg 
+https://jira.railsc.ru/browse/ORDERS-1262
+
 # v1.9.0
 
 * 2018-02-15 [9a37402](../../commit/9a37402) - __(kozyrk)__ release 1.9.0 
