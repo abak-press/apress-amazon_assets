@@ -18,7 +18,8 @@ module Apress
           defaults: {
             content_types: %w(image/gif image/jpeg image/png),
             max_size: 10.megabytes
-          }
+          },
+          bucket: "#{APP_NAME}#{"_#{Rails.env}" unless Rails.env.production?}".freeze
         }
       end
 
