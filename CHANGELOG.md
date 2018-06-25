@@ -1,3 +1,9 @@
+# v2.0.0
+
+* 2018-06-25 [e170010](../../commit/e170010) - __(Zhidkov Denis)__ Release 2.0.0 
+* 2018-06-25 [2a98886](../../commit/2a98886) - __(Zhidkov Denis)__ feat: allow to configure bucket for remote attachments 
+https://jira.railsc.ru/browse/ORDERS-1867
+
 # v1.9.1
 
 * 2018-02-27 [76c03f4](../../commit/76c03f4) - __(kozyrk)__ version 
