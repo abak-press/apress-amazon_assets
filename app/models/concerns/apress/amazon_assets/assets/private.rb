@@ -4,8 +4,6 @@ module Apress
       module Private
         extend ActiveSupport::Concern
 
-        S3_BUCKET = "#{APP_NAME}#{"_#{Rails.env}" unless Rails.env.production?}".freeze
-
         included do
           has_attached_file :local,
                             path: ":rails_root/public/system/assets/:id_partition/:basename.:extension",
@@ -19,7 +17,7 @@ module Apress
                             s3_credentials: "#{Rails.root}/config/amazon_s3.yml",
                             s3_permissions: 'authenticated-read',
                             s3_protocol: 'https',
-                            bucket: S3_BUCKET,
+                            bucket: Rails.application.config.amazon_assets.fetch(:bucket),
                             path: "assets/:id_partition/:basename.:extension",
                             use_timestamp: false,
                             filename_cleaner: ->(filename) { filename },
