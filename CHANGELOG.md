@@ -1,6 +1,11 @@
+# v2.0.1
+
+* 2019-09-05 [f242756](../../commit/f242756) - __(Popova Olga)__ Release 2.0.1 
+* 2019-09-05 [622598c](../../commit/622598c) - __(Pavel Galkin)__ test: restrict gems for old ruby, rm rails3.2 support 
+* 2019-09-04 [411019c](../../commit/411019c) - __(olga)__ fix(attachments): Добавлена иконка для rtf файлов https://jira.railsc.ru/browse/ORDERS-2526 
+
 # v2.0.0
 
-* 2018-06-25 [e170010](../../commit/e170010) - __(Zhidkov Denis)__ Release 2.0.0 
 * 2018-06-25 [2a98886](../../commit/2a98886) - __(Zhidkov Denis)__ feat: allow to configure bucket for remote attachments 
 https://jira.railsc.ru/browse/ORDERS-1867
 
