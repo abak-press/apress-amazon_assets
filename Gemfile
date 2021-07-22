@@ -12,8 +12,4 @@ if RUBY_VERSION < '2.3'
   gem 'nokogiri', '< 1.10.0', require: false
 end
 
-if RUBY_VERSION < '2.4'
-  gem 'mock_redis', '< 0.20', require: false
-end
-
 gem 'pg', '< 1.0.0'
