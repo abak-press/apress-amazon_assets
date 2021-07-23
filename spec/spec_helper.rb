@@ -21,7 +21,6 @@ require 'paperclip/matchers'
 require 'shoulda-matchers'
 require 'webmock/rspec'
 require 'redis-classy'
-require 'mock_redis'
 
 require 'test_after_commit'
 require 'vcr'
@@ -36,12 +35,14 @@ VCR.configure do |config|
   end
 end
 
+redis = Redis.new(host: ENV['TEST_REDIS_HOST'])
+Redis.current = redis
+Resque.redis = redis
+Redis::Classy.db = redis
+
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Paperclip::Shoulda::Matchers
-
-  Redis.current = MockRedis.new
-  Redis::Classy.db = Redis.current
 
   config.before(:all) do
     Redis::Classy.flushdb
