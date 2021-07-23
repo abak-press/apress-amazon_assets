@@ -1,6 +1,10 @@
+# v2.0.2
+
+* 2021-07-22 [c903dd1](../../commit/c903dd1) - __(TamarinEA)__ Release 2.0.2 
+* 2021-07-22 [ad039fd](../../commit/ad039fd) - __(TamarinEA)__ chore: add ruby 2.4 support and remove mock_redis 
+
 # v2.0.1
 
-* 2019-09-05 [f242756](../../commit/f242756) - __(Popova Olga)__ Release 2.0.1 
 * 2019-09-05 [622598c](../../commit/622598c) - __(Pavel Galkin)__ test: restrict gems for old ruby, rm rails3.2 support 
 * 2019-09-04 [411019c](../../commit/411019c) - __(olga)__ fix(attachments): Добавлена иконка для rtf файлов https://jira.railsc.ru/browse/ORDERS-2526 
 
