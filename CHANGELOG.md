@@ -1,6 +1,14 @@
+# v2.1.0
+
+* 2021-12-22 [7957a13](../../commit/7957a13) - __(git1-railsc)__ Release 2.1.0 
+* 2021-11-24 [2b2531b](../../commit/2b2531b) - __(Levushkina Marina)__ feature: allow render few attachments blocks on page 
+[MINOR]: позволит размещать несколько блоков загрузки файлов
+на странице
+
+https://jira.railsc.ru/browse/PC4-27507
+
 # v2.0.2
 
-* 2021-07-22 [c903dd1](../../commit/c903dd1) - __(TamarinEA)__ Release 2.0.2 
 * 2021-07-22 [ad039fd](../../commit/ad039fd) - __(TamarinEA)__ chore: add ruby 2.4 support and remove mock_redis 
 
 # v2.0.1
