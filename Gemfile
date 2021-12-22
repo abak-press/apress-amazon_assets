@@ -10,6 +10,7 @@ if RUBY_VERSION < '2.3'
   gem 'oj', '< 3.8.0', require: false
   gem 'pry-byebug', '< 3.7.0', require: false
   gem 'nokogiri', '< 1.10.0', require: false
+  gem 'pundit', '< 2.1.1', require: false
 end
 
 gem 'pg', '< 1.0.0'
