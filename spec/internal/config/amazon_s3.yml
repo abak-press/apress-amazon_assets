@@ -1,4 +1,4 @@
 test:
-  bucket: amazon_assets
-  access_key_id: AKIAJR44XLNRQVCSDJTQ
-  secret_access_key: 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
+  bucket: railsc-test
+  access_key_id: YCAJEeTmTDeY1dUln9giFvbZk
+  secret_access_key: YCPK42BJm3hn6TH1yPSovsb8X5M56iMWWTfjGlg-

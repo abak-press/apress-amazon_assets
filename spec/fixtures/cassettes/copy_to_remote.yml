@@ -2,29 +2,11 @@
 http_interactions:
 - request:
     method: put
-    uri: https://s3.amazonaws.com/amazon_assets_test/<%= path %>
+    uri: https://railsc-test.s3.yandexcloud.net/<%= path %>
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0
-        d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAt1JREFUeNqkU1lIVGEU/u4y
-        d9wdF3LJURlLk3FcUNMBBTWDXhRbwR4iIioicN5CilZIiJ6T3oSgh16KfCh6
-        kKSHNiNCLdTJZXSc1Tvrnbl37r0z/TdRtHzrwMd/zvnP8v2H81OpVAr/I6zx
-        gPFvH0dwg+De5ZFOVXM8GX6fTo4RYtv+DqZ3Gqv21S31VkX1vhPkrHk09Do/
-        GhfOEqbZN08/g4ZdDHZ0TWjKxfvWrLkpr2ztrnmem5GHwuJsqAILKSHCUJoX
-        Ca4HbKqibBdgcvJzNHq/CPa7094V6Vj6YX/vGVOX5RR0TBbcgUUgnIn8nHwo
-        qtJ++8GdvJae8jfJZBIaNAZxgqvG6twXej1H97VdQGaaHr6QHUipYDgyZEYG
-        pepQUlACURKHxu5+KaIoyjN4vd62NYNX5o7CuZ6GAcREN+lqR1yKwpBVAJM5
-        E8UHuU26DANOx4HMZPyk7ZAtISX+MCjvu1JprS431wqSC5IcRhqXgVRKRij8
-        E83ljcg+aofd5AbvkRCZZhCYxURCFLdn4MopYAbbm9vhjyxBVWXyNhle3wJW
-        A8uwVB1Hnakb5qoWWGobUFzBICRsGD+Oeycr69JjGoOydEPSG5V9TCQeBkto
-        OtZ5CFIEHQ39WPFPEB8Lji0BTaVj3jGLtXmhj+T1vB1zlbBtAxlRVVYYF79E
-        aCfB+3nEhBiszUfg8H0nSUkwNAWKcmDF5YXH437a0Jt2bnsPPr2MJZqO0dM8
-        77fEYyKikRia6tuw7JlGCipYlgFFAmPkbm5mDYqijP6zSGSaox5n4LEKCfWW
-        w1jbWICa3FwWmnQXBQnOxQ04ZlTwTrrR3K182LlI8C3TU3pDsAhUqlVGlPRN
-        aEURCQrwOnmS7P8sJ+Rh5w9ukuScJ/FjhlJRJQKqrKpsm05tp3ItLgqXiGoh
-        4BWJXgm69E1RH2eqbA0t7fUbdxXYKcamDax+K9DW3EvQReyve8X9FmAAHyxD
-        +bF2jCMAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAt1JREFUeNqkU1lIVGEU/u4yd9wdF3LJURlLk3FcUNMBBTWDXhRbwR4iIioicN5CilZIiJ6T3oSgh16KfCh6kKSHNiNCLdTJZXSc1Tvrnbl37r0z/TdRtHzrwMd/zvnP8v2H81OpVAr/I6zxgPFvH0dwg+De5ZFOVXM8GX6fTo4RYtv+DqZ3Gqv21S31VkX1vhPkrHk09Do/GhfOEqbZN08/g4ZdDHZ0TWjKxfvWrLkpr2ztrnmem5GHwuJsqAILKSHCUJoXCa4HbKqibBdgcvJzNHq/CPa7094V6Vj6YX/vGVOX5RR0TBbcgUUgnIn8nHwoqtJ++8GdvJae8jfJZBIaNAZxgqvG6twXej1H97VdQGaaHr6QHUipYDgyZEYGpepQUlACURKHxu5+KaIoyjN4vd62NYNX5o7CuZ6GAcREN+lqR1yKwpBVAJM5E8UHuU26DANOx4HMZPyk7ZAtISX+MCjvu1JprS431wqSC5IcRhqXgVRKRij8E83ljcg+aofd5AbvkRCZZhCYxURCFLdn4MopYAbbm9vhjyxBVWXyNhle3wJWA8uwVB1Hnakb5qoWWGobUFzBICRsGD+Oeycr69JjGoOydEPSG5V9TCQeBktoOtZ5CFIEHQ39WPFPEB8Lji0BTaVj3jGLtXmhj+T1vB1zlbBtAxlRVVYYF79EaCfB+3nEhBiszUfg8H0nSUkwNAWKcmDF5YXH437a0Jt2bnsPPr2MJZqO0dM877fEYyKikRia6tuw7JlGCipYlgFFAmPkbm5mDYqijP6zSGSaox5n4LEKCfWWw1jbWICa3FwWmnQXBQnOxQ04ZlTwTrrR3K182LlI8C3TU3pDsAhUqlVGlPRNaEURCQrwOnmS7P8sJ+Rh5w9ukuScJ/FjhlJRJQKqrKpsm05tp3ItLgqXiGoh4BWJXgm69E1RH2eqbA0t7fUbdxXYKcamDax+K9DW3EvQReyve8X9FmAAHyxD+bF2jCMAAAAASUVORK5CYII=
     headers:
       Content-Type:
       - image/png
@@ -35,35 +17,38 @@ http_interactions:
       X-Amz-Acl:
       - authenticated-read
       User-Agent:
-      - aws-sdk-ruby/1.64.0 ruby/1.9.3 i686-linux
+      - aws-sdk-ruby/1.67.0 ruby/2.4.10 x86_64-linux
       Expect:
       - 100-continue
       Date:
-      - Tue, 26 May 2015 05:43:27 GMT
+      - Mon, 21 Mar 2022 14:10:58 GMT
       Authorization:
-      - AWS AKIAJR44XLNRQVCSDJTQ:FadQja5VyFWE/U6gqH1WwlUDjy4=
+      - AWS YCAJEeTmTDeY1dUln9giFvbZk:9T8Fq2ohTSdht4DamziENjxDC9g=
       Accept:
-      - ! '*/*'
+      - "*/*"
   response:
     status:
       code: 200
       message: OK
     headers:
-      X-Amz-Id-2:
-      - m+IJqKbM3T1oKkv91SCUeooDU4ncvsCta92h5FQCxECrTp1zOviSzFTRoWSg0c1C5Xwc8vKrv/0=
-      X-Amz-Request-Id:
-      - F1E77B839DBFA8BD
-      Date:
-      - Tue, 26 May 2015 05:43:28 GMT
-      Etag:
-      - ! '"fc62a57a9d14e7b2d685335eef5d4546"'
-      Content-Length:
-      - '0'
       Server:
-      - AmazonS3
+      - nginx
+      Date:
+      - Mon, 21 Mar 2022 14:10:49 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=60
+      Etag:
+      - '"fc62a57a9d14e7b2d685335eef5d4546"'
+      X-Amz-Request-Id:
+      - e31d04b6a3575e54
+      X-Amz-Version-Id:
+      - 'null'
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
-    http_version:
-  recorded_at: Tue, 26 May 2015 05:43:28 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Mon, 21 Mar 2022 14:10:58 GMT
+recorded_with: VCR 6.0.0

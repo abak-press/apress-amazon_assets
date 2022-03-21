@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Apress
   module AmazonAssets
     class Engine < ::Rails::Engine
@@ -19,7 +21,7 @@ module Apress
             content_types: %w(image/gif image/jpeg image/png),
             max_size: 10.megabytes
           },
-          bucket: "#{APP_NAME}#{"_#{Rails.env}" unless Rails.env.production?}".freeze
+          bucket: 'railsc-test',
         }
       end
 
